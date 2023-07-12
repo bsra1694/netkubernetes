@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inmueble-app
+  namespace: app
+spec:
+  selector:
+    matchLabels:
+      app: inmueble-app
+  template:
+    metadata:
+      namespace: app
+      labels:
+        app: inmueble-app
+    spec:
+      containers:
+      - name: angular-inmueble-app
+        image: santiagor16/angular-kubernetes-santi:v1.0
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80

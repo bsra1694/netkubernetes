@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: angular-inmueble-service
+  namespace: app
+spec:
+  type: ClusterIP
+  selector:
+    app: inmueble-app
+  ports:
+  - port: 80
+    targetPort: 80
