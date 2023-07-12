@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: app-pod
+  labels:
+    name: app
+    type: netapi
+spec:
+  containers:
+  - name: app-api
+    image: santiagor16/net-kubernetes-san:v1.0
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports:
+      - containerPort: 5000
+    env:
+      - name: ConnectionStrings__SQLServerConnection
+        value: Data Source=mssql-service; Initial Catalog=InmuebleDB; User Id=sa;password=Barcelona16*; TrustServerCertificate=True
